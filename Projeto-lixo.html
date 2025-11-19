@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Web page not responsive, ES6 / PROJETO LIXO">
+  <meta name="author" content="Alexandre Student front / ES6 HTML5 CSS3">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Project web page ES6</title>
+</head>
+<body>
+<script>
+const b = document.body;
+function web(keys, styles){
+  Object.entries(styles).forEach(([prop, value]) => { 
+    keys.style[prop] = value;
+  });
+};
+const header = document.createElement("header");
+const nav = document.createElement("nav");
+const ul = document.createElement("ul");
+const icon = document.createElement("i");
+const btn = document.createElement("button");
+web(b, {
+  display: "flex",
+  flexDirection: "column",
+  marginBottom: "200px",
+  boxSizing: "border-box",
+  fontFamily: "sans-serif"
+});
+web(header, {
+  backgroundImage: `url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmsJ65shepLQrpgZLZb-vpMh-fAzCBqek7bULHqkNhSg&s=10')`,
+  backgroundRepeat: "no-repeat",
+  backgroundSize: "cover",
+  padding: "100px",
+  marginBottom: "150px",
+  boxShadow: "2px 4px 8px #fff"
+});
+web(btn, {
+  height: "40px",
+  width: "40px",
+  border: "none",
+  fontSize: "28px",
+  backgroundColor: "transparent",
+  color: "white",
+  position: "relative",
+  top: "190px"
+});
+btn.innerHTML = "";
+icon.className = "fa fa-bars";
+b.appendChild(btn);
+btn.appendChild(icon);
+let iconLink = [
+  "fa fa-bars",
+  "fa fa-times"
+];
+let altIcon = 0;
+btn.addEventListener('click', () => {
+if(nav.style.display === "none"){
+  web(nav, {
+  display: "block"
+  });
+  altIcon = 1;
+}else{
+  web(nav, {
+  display: "none"
+  });
+  altIcon = 0;
+};
+icon.className = iconLink[altIcon];
+});
+let usr = [
+  {name: "PÁGINA", url: "https://github.com/Dev-Alexandre-jun"},
+  {name: "SOBRE", url: "https://github.com/Dev-Alexandre-jun"},
+  {name: "SERVIÇOS", url: "https://github.com/Dev-Alexandre-jun"}
+];
+usr.forEach(link => {
+  let a = document.createElement("a");
+  a.href = link.url;
+  a.innerHTML = link.name;
+  const li = document.createElement("li");
+  ul.appendChild(li);
+  li.appendChild(a);
+  web(nav, {
+    display: "none",
+    position: "absolute"
+  });
+  web(ul, {
+    display: "flex",
+    listStyle: "none"
+  });
+  web(a, {
+    fontSize: "15px",
+    color: "#fff",
+    fontWeight: "bold",
+    textDecoration: "none",
+    padding: "8px",
+    position: "relative",
+    top: "-110px",
+    right: "142px",
+    textShadow: "2px 4px 8px #fff",
+    webkitTextStroke: "0.7px #000"
+  });
+});
+b.appendChild(header);
+header.appendChild(nav);
+nav.appendChild(ul);
+const canvas = document.createElement("canvas");
+web(canvas, {
+  height: "150px",
+  width: "290px",
+  transform: "translate(0, -520px)"
+});
+const screen = {
+  height: 300,
+  width: 300
+};
+canvas.height = screen.height;
+canvas.width = screen.width;
+const ctx = canvas.getContext("2d");
+const links = {
+  height: 190,
+  width: 260,
+  url: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqJtDWCB9wBBd9N2is9NBV-fm8GlfFJF4Qx93_zyGgAw&s=10",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7dCvfAjXJkw-HCt39bYjPn1l60_zEGcxLMElCNOyY3g&s=10"]
+};
+function BROWSER_JPEG(src, y, x) {
+const img = new Image();
+img.src = src;
+img.onload = () => {
+    ctx.drawImage(img, y, x, links.height, links.width);
+    b.appendChild(canvas);
+  };
+};
+BROWSER_JPEG(links.url[0], -18, 12);
+BROWSER_JPEG(links.url[1], 139, 5);
+const textDescription = document.createElement("p");
+textDescription.innerText = "( JS ) É uma linguagem de programação e tecnologia central da Web , juntamente com HTML e CSS . Foi criada por Brendan Eich em 1995. Noventa e nove por cento dos sites usam JavaScript no lado do cliente para o comportamento da página da Web .";
+b.appendChild(textDescription);
+web(textDescription, {
+  fontWeight: "bold",
+  fontSize: "12px",
+  letterSpacing: "1px",
+  transform: "translate(8px, 110px)"
+});
+const labelArea = document.createElement("label");
+labelArea.for = "description";
+labelArea.innerHTML = "COMENTE";
+web(labelArea, {
+  transform: "translate(90px, 179px)",
+  fontWeight: "bold"
+});
+b.appendChild(labelArea);
+const usrArea = document.createElement("textarea");
+usrArea.name = "description";
+usrArea.rows = "5";
+usrArea.cols = "0";
+usrArea.placeholder = "O QUE ACHOU ?";
+web(usrArea, {
+  display: "block",
+  padding: "20px",
+  transform: "translate(0, 199px)",
+  backgroundColor: "lightgray"
+});
+b.appendChild(usrArea);
+const btnUsr = document.createElement("button");
+btnUsr.innerHTML = "ENVIAR";
+b.appendChild(btnUsr);
+web(btnUsr, {
+  width: "100px",
+  height: "50px",
+  backgroundColor: "#000",
+  borderRadius: "5px",
+  color: "#fff",
+  transform: "translate(99px, 220px)"
+});
+btnUsr.addEventListener("click", () => {
+if(usrArea.value !== ""){
+  usrArea.disabled = true;
+  window.location.href="https://github.com/Dev-Alexandre-jun"; return false;
+}else{
+  usrArea.value = "ESCREVA ALGO";
+};
+});
+const textFooter = document.createElement("p");
+textFooter.innerHTML = "Direitos reservados, Student Alexadre";
+footer = document.createElement("footer");
+footer.appendChild(textFooter);
+b.appendChild(footer);
+web(textFooter, {
+  fontWeight: "bold",
+  fontSize: "11px",
+  transform: "translate(10px, 400px)"
+});
+  </script>
+</body>
+</html>
