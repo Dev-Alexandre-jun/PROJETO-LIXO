@@ -91,14 +91,14 @@ usr.forEach(link => {
     listStyle: "none"
   });
   web(a, {
-    fontSize: "15px",
+    fontSize: "22px",
     color: "#fff",
     fontWeight: "bold",
     textDecoration: "none",
     padding: "8px",
     position: "relative",
     top: "-110px",
-    right: "142px",
+    right: "139px",
     textShadow: "2px 4px 8px #fff",
     webkitTextStroke: "0.7px #000"
   });
@@ -110,7 +110,7 @@ const canvas = document.createElement("canvas");
 web(canvas, {
   height: "150px",
   width: "290px",
-  transform: "translate(0, -520px)"
+  transform: "translate(0, -480px)"
 });
 const screen = {
   height: 300,
@@ -140,7 +140,7 @@ textDescription.innerText = "( JS ) É uma linguagem de programação e tecnolog
 b.appendChild(textDescription);
 web(textDescription, {
   fontWeight: "bold",
-  fontSize: "12px",
+  fontSize: "15px",
   letterSpacing: "1px",
   transform: "translate(8px, 110px)"
 });
@@ -148,7 +148,7 @@ const labelArea = document.createElement("label");
 labelArea.for = "description";
 labelArea.innerHTML = "COMENTE";
 web(labelArea, {
-  transform: "translate(90px, 179px)",
+  transform: "translate(117px, 179px)",
   fontWeight: "bold"
 });
 b.appendChild(labelArea);
@@ -190,8 +190,9 @@ footer.appendChild(textFooter);
 b.appendChild(footer);
 web(textFooter, {
   fontWeight: "bold",
-  fontSize: "11px",
-  transform: "translate(10px, 400px)"
+  fontSize: "13px",
+  transform: "translate(39px, 400px)",
+  paddingBottom: "40px"
 });
   </script>
 </body>
